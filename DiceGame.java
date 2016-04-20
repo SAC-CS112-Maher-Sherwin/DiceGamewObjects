@@ -5,7 +5,6 @@ public class DiceGame {
 
     public static void main(String[] args) {
         String play = "yes";
-        String actualRoll;
         int roundsPlayed = 0;
         int wins = 0;
         double winPercent;
@@ -16,15 +15,12 @@ public class DiceGame {
         
     while (play.equalsIgnoreCase("yes")){
         roundsPlayed++;
+        ComputerRoll r = new ComputerRoll();
+        OddorEven a = new OddorEven();
         
     // Computer will roll the dice and determine if it is odd or even    
-        ComputerRoll r = new ComputerRoll();
         int diceRoll = r.getRoll();
-            
-            if (diceRoll == 1 || diceRoll == 3 || diceRoll == 5)
-                actualRoll = "odd"; 
-            else 
-                actualRoll = "even";
+        String actualRoll = a.setOddorEven(diceRoll);
             
     // Prompt user to guess if it will be odd or even and store value
         String userGuess = JOptionPane.showInputDialog("You're about to roll a 6-sided dice. "
@@ -70,4 +66,3 @@ public class DiceGame {
     }
     
 }
-    
